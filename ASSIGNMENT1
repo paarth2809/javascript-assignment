@@ -1,0 +1,65 @@
+// Q1
+let marks=67;
+if(marks>90) console.log("A grade")
+else if(marks>70 && marks<=90) console.log("B grade")
+else if(marks>50 && marks<=70) console.log("C grade")
+else console.log("F grade")
+
+// Q2
+const num1=10;
+const num2=25;
+for(let i=num1+1;i<num2;i++) console.log(i)
+
+// Q3
+var n=-1
+var ans= n>=0 ? n>0 ? "positive" : "zero" : "negative"
+console.log(ans)
+
+// Q4
+/*
+comma operator is used in objects 
+when more than one key value pair 
+are to be declared. Comma opeartor
+allows us to evaluate multiple 
+expressions in single statement
+*/
+
+// Q5
+let username="admin"
+let password="12345"
+if(username=="admin" && password=="12345")
+    console.log("Login Successful")
+else 
+    console.log("Inavlid credentials")
+
+// Q6
+let method="credit"
+switch(method){
+    case "credit":
+        console.log("processing fee of creditis: 2%")
+        break
+    case "debit":
+        console.log("processing fee of debit is: 1.5%")
+        break
+    case "paypal":
+        console.log("processing fee of paypal is: 3%")
+        break
+    default:
+        console.log("invalid input")
+}
+
+// Q7
+let temperature=40
+var ans = temperature>30 ? "Hot" : "Moderate"
+console.log(ans)
+
+// Q8
+let number=5
+let sum=0
+let i=1
+do{
+    sum+=i
+    i++
+}
+while(i<=number);
+console.log(sum)
