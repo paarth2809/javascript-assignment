@@ -1,0 +1,131 @@
+// 1.
+function counter(){
+    let count=1
+    return function(){
+        console.log(`button clicked ${count++} times`)
+    }
+}
+const button=counter()
+button()
+button()
+button()
+
+// 2.
+let order={
+    orderId: "123456",
+    productName: "Laptop",
+    quantity: 2
+}
+
+const{orderId,productName,quantity}=order
+console.log(orderId,productName,quantity)
+
+// 3.
+
+function shoppingCart(){
+    let cartItems=[]
+    return {
+        getItems: function(){
+            return cartItems
+        }
+    }
+}
+const cart=shoppingCart()
+console.log('Cart Items:',cart.getItems())
+
+// 4.
+function shoppingCart(){
+    let cartItems=[]
+    function findIndex(id){
+        return cartItems.findIndex(item=>id===item.id)
+    }
+    return {
+        getItems: function(){
+            return cartItems
+        },
+        addItem: function(obj){
+            const idx1=findIndex(obj.id)
+            if(idx1===-1) cartItems.push({id: obj.id,name: obj.name,price: obj.name,quantity: 1})
+            else cartItems[idx1].quantity++;
+        }
+    }
+}
+const cart=shoppingCart()
+console.log('Cart Items:',cart.getItems())
+
+const product1={id: 1,name: "product 1",price: 10}
+const product2={id: 2,name: "product 2",price: 20}
+
+cart.addItem(product1)
+cart.addItem(product2)
+cart.addItem(product1)
+
+console.log('Cart Items:',cart.getItems())
+
+// 5.
+
+function shoppingCart(){
+    let cartItems=[]
+    function findIndex(id){
+        return cartItems.findIndex(item=>id===item.id)
+    }
+    return {
+        getItems: function(){
+            return cartItems
+        },
+        addItem: function(obj){
+            const idx1=findIndex(obj.id)
+            if(idx1===-1) cartItems.push({id: obj.id,name: obj.name,price: obj.name,quantity: 1})
+            else cartItems[idx1].quantity++;
+        },
+        removeItem: function(id){
+            const idx1=findIndex(id)
+            if(idx1!==-1){
+                cartItems.splice(idx1,1)
+            }
+        }
+    }
+}
+const cart=shoppingCart()
+console.log('Cart Items:',cart.getItems())
+
+const product1={id: 1,name: "product 1",price: 10}
+const product2={id: 2,name: "product 2",price: 20}
+
+cart.addItem(product1)
+cart.addItem(product2)
+cart.addItem(product1)
+
+console.log('Cart Items:',cart.getItems())
+
+cart.removeItem(2)
+console.log('Cart Items:',cart.getItems())
+
+// 6.
+
+function createPlaylist(name){
+    let playList=[]
+    return {
+        addSong: function(songName,artistName){
+            playList.push({songName,artistName})
+        },
+        listSong: function(){
+            console.log(`${name} Playlist: ${playList.map(song=>`${song.songName} by ${song.artistName}`).join(',')}`)
+        }
+    }
+}
+
+function addSong(playList,songName,artistName){
+    playList.addSong(songName,artistName)
+}
+
+function listSongs(playList){
+    playList.listSong()
+}
+const myPlaylist=createPlaylist("My Favorites")
+
+addSong(myPlaylist,"Song1","Artist1")
+addSong(myPlaylist,"Song2","Artist2")
+addSong(myPlaylist,"Song3","Artist3")
+
+listSongs(myPlaylist)
