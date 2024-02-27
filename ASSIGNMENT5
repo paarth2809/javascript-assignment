@@ -1,0 +1,50 @@
+// 1.
+function sumAsync(a,b,cb){
+    setTimeout(()=>{
+        cb(a,b)
+    },1000)
+}
+
+const sum=(a,b)=>{console.log(a+b)}
+sumAsync(4,5,sum)
+
+// 2.
+function getData(){
+    return new Promise(resolve=>{
+        setTimeout(()=>{
+            resolve("Data fetched successfully")
+        },2000)
+    })
+}
+getData().then(res=>console.log(res))
+
+// 3.
+async function fetchData(){
+    const response=await fetch("https://jsonplaceholder.typicode.com/todos/1")
+    const data=await response.json()
+    console.log(data)
+}
+
+fetchData()
+
+// 4.
+async function fetchData(){
+    const response=await fetch("https://jsonplaceholder.typicode.com/todos/1")
+    const data=await response.json()
+    console.log(data)
+}
+
+fetchData()
+
+// 5. 
+function multiplyWithCallback(arr,cb){
+    arr.forEach((ele,index,arr)=>{
+        arr[index]=ele*2
+    })
+    cb(arr)
+}
+function cb(arr){
+    console.log(arr)
+}
+
+multiplyWithCallback([1,2,3,4,5],cb)
