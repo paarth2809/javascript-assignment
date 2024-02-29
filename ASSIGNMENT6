@@ -1,0 +1,72 @@
+// 1.
+cart=[]
+function addToCart(product,price,quantity){
+    try{
+        if(product=="") throw Error("Product name is required")
+        else if(price<0) throw Error("Invalid product price")
+        else if(isNaN(quantity)) throw Error("Inavlid quantity")
+        // else cart.push({productName:product,Price:price,Quantity:quantity})
+    }
+    catch(error){
+        console.log(error.message)
+    }
+}
+function checkout(){
+    if(cart.length==0) throw Error("Cart is empty. Add items before checkout")
+}
+addToCart("Laptop",1200,2)
+addToCart("",30,1)
+addToCart("Mouse",-15,3)
+addToCart("Keyboard",50,"abc")
+
+try{
+    checkout()
+} catch(error){
+    console.log(error.message)
+}
+console.log(cart)
+
+// 2.
+map=new Map([
+    ["user123","pass123"],
+    ["user124","pass124"],
+    ["user125","pass125"]
+])
+function login(username,password){
+    try{
+        if(username=="") throw Error("Username is required")
+        else if(password=="") throw Error("Password is required")
+        else if(!map.has(username) || map.get(username)!=password) throw Error("invalid username or password")
+        else console.log("successfully logged in")
+    }
+    catch(error){
+        console.log(error.message)
+    }
+}
+login("user123","pass123")
+login("","pass123")
+login("user123","")
+login("user126","pass126")
+login("user123","pass126")
+
+// 3.
+set=new Set(['1234-5678','4567-8907'])
+function processPayment(amount,cardNo,expirationDate){
+    try{
+        const expirationDateObject = new Date(expirationDate);
+        const currentDate = new Date();
+        if(amount<0) throw Error("Inavlid payment amount")
+        else if(cardNo==="" || !set.has(cardNo)) throw Error("Invalid card no")
+        else if(expirationDateObject<=currentDate) throw Error("Inavlid expiration date")
+        else console.log("payment successful")
+    
+    }
+    catch(error){
+        console.log(error.message)
+    } 
+}
+processPayment(50.25,"1234-5678","2025-12-10")
+processPayment(-50.25,"1234-5678","2025-12-10")
+processPayment(50.25,"","12/25")
+processPayment(50.25,"1234-5678","2022-12-10")
+
