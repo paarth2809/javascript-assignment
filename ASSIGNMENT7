@@ -1,0 +1,70 @@
+// 1.
+Database is a storage space where we can store our data and can use it in future.
+Using databases, we can access our data more efficiently than that of file based storage syatem.
+For Eg. all the photos and posts we upload on any socail media app like facebook or instagram can be accessed in future because they are stored in databases.
+Also the data that is stored in databases is more secure than file system as there are many layers of security surrounding databases.
+Need of databases:
+1. To avoid redundancy that is there in file system
+2. To achieve more security.
+3. To avoid anomalies like read,write,delete,update
+4. No need to learn any complex programming language to connect system to database.
+
+// 2.
+In previous times file based storage system is used to store data. data is stored in directories containing files and folders.
+Challenges:
+1. Accessing of data is difficult in file system
+2. In file system data redundancy is there i.e a single entity has multiple records in it
+3. Due to data redundancy , anomalies like delete,update,read,write are there.
+4. There is a security concern in file system
+5. To connect our system with files, we need to learn prograaming languages like python,java which are complex at that time
+To resolve above problems, databases came in tech.
+
+// 3.
+DBMS is database management system. It is used to manage the database operations that is when to add something on database, where to add, when to add etc. Eg. MongaDB,MySQL etc.
+Basically it has database in it and outside is the management system/layer that protects the database
+Need of DBMS:
+1. To avoid data redundancy as now to add data it will be added by management system and it will search if there present a same entity or not.
+2. To resolve anomalies like read,update,delete,write.
+3. More secure than file system
+4. No need to learn programming language
+5. Require queries to connect with database which is very simple as comapred to programming language.
+
+// 4.
+Challenges of file system tackled by DBMS are:
+1. DBMS is used to avoid redundancy
+2. DBMS provide more security layers
+3. No anomalies like read,update,delete,write.
+4. Structured data organization
+5. Data integrity
+6. Easy to connect system with database.
+
+// 5.
+DBMS classification:
+1. Relational Database Management System: It is used to if there is a relation between key and attributes. In this data is structured(fixed schema). It is used when all data is in one system.
+                                          Example: MySQL,Oracle,Microsoft SQL server etc.
+
+2. Non Relational Database Management System: In this there is dynamic schema and it is used when there is large data and it is stored in different systems.
+                                             Example: MongoDB,Cassandra,Redis,Neo4j etc.
+
+// 6.
+Data Modelling is used to convert real world entities to tables and relationships to represent how our system looks like.
+Basically it is prototype of our system where all the tables and relation between them is shown.
+Types of Data Models in DBMS:
+1. Hierarchical Model
+2. Network Model
+3. Entity-Relationship Model
+
+Types of relationships in DBMS:
+1. one to one
+2. one to many
+3. many to one
+4. many to many
+
+// 7.
+The three level architectur in DBMS consists of three levels i.e whole database is divided into three levels.
+Levels are: External level, Conceptual level, Internal level.
+External level: User can access only external level. It is also called user level. Here the data fetched from internal level is shown to user. It is top level of database.
+Conceptual Level: It is also called logical level. The whole design of the database such as relationship among data,schema of data etc. are described in this level.It is the second level of database through
+                  which user can interact with the internal level. All the concepts used are present in this level. It is used to fetch data from internal level and give it back to user.
+Internal Level: This level is also known as physical level. This level describes how the data is actually stored in the storage devices. This level is also responsible for allocating space to the data. 
+                It is the innermost level of database.
