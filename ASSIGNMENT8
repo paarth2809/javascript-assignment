@@ -1,0 +1,295 @@
+// 1.
+user> use PWSKILLS
+switched to db PWSKILLS
+PWSKILLS> db.createCollection("Employees")
+{ ok: 1 }
+PWSKILLS> var emp1={
+... name: "mohan",
+... age: 24,
+... post: "faculty"
+... }
+PWSKILLS> var emp2={
+... name: "rahul",
+... age: 28,
+... post: "backend developer"
+... }
+PWSKILLS> db.Employee.insertMany([emp1,emp2])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('65e4b5dee8dba3b72ddd105d'),
+    '1': ObjectId('65e4b5dee8dba3b72ddd105e')
+  }
+}
+PWSKILLS> db.Employee.find()
+[
+  {
+    _id: ObjectId('65e4b5dee8dba3b72ddd105d'),
+    name: 'mohan',
+    age: 24,
+    post: 'faculty'
+  },
+  {
+    _id: ObjectId('65e4b5dee8dba3b72ddd105e'),
+    name: 'rahul',
+    age: 28,
+    post: 'backend developer'
+  }
+]
+PWSKILLS> db.Employee.drop()
+true
+PWSKILLS> db.dropDatabase()
+{ ok: 1, dropped: 'PWSKILLS' }
+
+
+// 2-6
+PWSKILLS> use CUSTOMER
+switched to db CUSTOMER
+CUSTOMER> db.createCollection("Customers")
+{ ok: 1 }
+CUSTOMER> var customer1={
+... name : "paarth",
+... item: "saree"
+... }
+CUSTOMER> var customer2={
+... name: "mohan",
+... item: "jeans"
+... }
+
+CUSTOMER> db.Customers.insertMany([customer1,customer2])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('65e4b78fe8dba3b72ddd1060'),
+    '1': ObjectId('65e4b78fe8dba3b72ddd1061')
+  }
+}
+CUSTOMER> db.Customers.find()
+[
+  {
+    _id: ObjectId('65e4b78fe8dba3b72ddd1060'),
+    name: 'paarth',
+    item: 'saree'
+  },
+  {
+    _id: ObjectId('65e4b78fe8dba3b72ddd1061'),
+    name: 'mohan',
+    item: 'jeans'
+  }
+]
+
+CUSTOMER> db.Customers.update({name:'paarth'},{$set:{newName:'surinder'}})
+DeprecationWarning: Collection.update() is deprecated. Use updateOne, updateMany, or bulkWrite.
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+CUSTOMER> db.Customers.find()
+[
+  {
+    _id: ObjectId('65e4b78fe8dba3b72ddd1060'),
+    name: 'paarth',
+    item: 'saree',
+    newName: 'surinder'
+  },
+  {
+    _id: ObjectId('65e4b78fe8dba3b72ddd1061'),
+    name: 'mohan',
+    item: 'jeans'
+  },
+  {
+    _id: ObjectId('65e4b78fe8dba3b72ddd1062'),
+    name: 'rahul',
+    item: 'shorts'
+  }
+]
+CUSTOMER> db.Customers.updateOne({name:'paarth'},{$set:{newNme:'suri'}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+CUSTOMER> db.Customers.find()
+[
+  {
+    _id: ObjectId('65e4b78fe8dba3b72ddd1060'),
+    name: 'paarth',
+    item: 'saree',
+    newName: 'surinder',
+    newNme: 'suri'
+  },
+  {
+    _id: ObjectId('65e4b78fe8dba3b72ddd1061'),
+    name: 'mohan',
+    item: 'jeans'
+  }
+]
+CUSTOMER> db.Customers.deleteOne({name:'paarth'})
+{ acknowledged: true, deletedCount: 1 }
+CUSTOMER> db.Customers.find()
+[
+  {
+    _id: ObjectId('65e4b78fe8dba3b72ddd1061'),
+    name: 'mohan',
+    item: 'jeans'
+  }
+]
+CUSTOMER>
+
+
+// 8-13
+CUSTOMER> use SchoolDB
+switched to db SchoolDB
+SchoolDB> db.createCollection('Students')
+{ ok: 1 }
+SchoolDB> var s1={
+... name: "paarth",
+... age: 19,
+... grade: 'A'
+... }
+
+SchoolDB> var s2={
+... name: "sohan",
+... age: 18,
+... grade: 'B'
+... }
+
+SchoolDB> var s3={
+... name: 'rahul',
+... age: 17,
+... grade: 'B+'
+... }
+
+SchoolDB> db.Students.insertMany([s1,s2,s3])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('65e4b94ce8dba3b72ddd1063'),
+    '1': ObjectId('65e4b94ce8dba3b72ddd1064'),
+    '2': ObjectId('65e4b94ce8dba3b72ddd1065')
+  }
+}
+
+SchoolDB> db.Students.find({
+... $or:[
+... {age: {$gte:18}},
+... {grade: 'A'}
+... ]
+... })
+[
+  {
+    _id: ObjectId('65e4b94ce8dba3b72ddd1063'),
+    name: 'paarth',
+    age: 19,
+    grade: 'A'
+  },
+  {
+    _id: ObjectId('65e4b94ce8dba3b72ddd1064'),
+    name: 'sohan',
+    age: 18,
+    grade: 'B'
+  }
+]
+SchoolDB> db.Students.updateOne({name:'paarth'},{$set: {grade: 'B+'}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+SchoolDB> db.Students.find()
+[
+  {
+    _id: ObjectId('65e4b94ce8dba3b72ddd1063'),
+    name: 'paarth',
+    age: 19,
+    grade: 'B+'
+  },
+  {
+    _id: ObjectId('65e4b94ce8dba3b72ddd1064'),
+    name: 'sohan',
+    age: 18,
+    grade: 'B'
+  },
+  {
+    _id: ObjectId('65e4b94ce8dba3b72ddd1065'),
+    name: 'rahul',
+    age: 17,
+    grade: 'B+'
+  }
+]
+
+SchoolDB> db.createCollection("Teachers")
+{ ok: 1 }
+
+SchoolDB> var teacher1={
+... name: "kritika",
+... subject: "maths",
+... experience: 9
+... }
+
+SchoolDB> var teacher2={
+... name: "deepika",
+... subject: "DSA",
+... experience:5
+... }
+
+SchoolDB> db.Teachers.insertMany([teacher1,teacher2])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('65e4bbe4e8dba3b72ddd1066'),
+    '1': ObjectId('65e4bbe4e8dba3b72ddd1067')
+  }
+}
+SchoolDB> db.Teachers.find({
+... $or:[
+... {subject: "DSA"},
+... {experience: {$gte:6}}
+... ]
+... })
+[
+  {
+    _id: ObjectId('65e4bbe4e8dba3b72ddd1066'),
+    name: 'kritika',
+    subject: 'maths',
+    experience: 9
+  },
+  {
+    _id: ObjectId('65e4bbe4e8dba3b72ddd1067'),
+    name: 'deepika',
+    subject: 'DSA',
+    experience: 5
+  }
+]
+
+SchoolDB> db.Teachers.update({name: 'kritika'},{$set:{experience: 11}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+SchoolDB> db.Teachers.find()
+[
+  {
+    _id: ObjectId('65e4bbe4e8dba3b72ddd1066'),
+    name: 'kritika',
+    subject: 'maths',
+    experience: 11
+  },
+  {
+    _id: ObjectId('65e4bbe4e8dba3b72ddd1067'),
+    name: 'deepika',
+    subject: 'DSA',
+    experience: 5
+  }
+]
+SchoolDB>
