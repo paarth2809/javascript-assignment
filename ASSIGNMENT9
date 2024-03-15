@@ -1,0 +1,177 @@
+// 1.
+C:\Users\paart>type nul>script.js
+
+C:\Users\paart>git init
+Initialized empty Git repository in C:/Users/paart/.git/
+
+C:\Users\paart>git add script.js
+
+C:\Users\paart>git commit -m"script.js successfully commited"
+[master (root-commit) affcb82] script.js successfully commited
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 script.js
+
+C:\Users\paart>git log
+commit affcb822f00148defd82dc73285bb02b1d1910a9 (HEAD -> master)
+Author: Paarth Monga <paarthmonga28@gmail.com>
+Date:   Fri Mar 15 19:36:35 2024 +0530
+
+    script.js successfully commited
+
+// 2.
+C:\Users\paart>git branch feature_greeting
+
+C:\Users\paart>git checkout feature_greeting
+Switched to branch 'feature_greeting'
+
+C:\Users\paart>notepad script.js
+// here chnges are made to file
+C:\Users\paart>git add script.js
+
+C:\Users\paart>git commit -m"feature_greeting commit"
+[feature_greeting 0b41280] feature_greeting commit
+ 1 file changed, 1 insertion(+)
+
+C:\Users\paart>git log
+commit 0b412800200a74e06aaafbd0216fa59ab663df94 (HEAD -> feature_greeting)
+Author: Paarth Monga <paarthmonga28@gmail.com>
+Date:   Fri Mar 15 19:40:15 2024 +0530
+
+    feature_greeting commit
+
+commit affcb822f00148defd82dc73285bb02b1d1910a9 (master)
+Author: Paarth Monga <paarthmonga28@gmail.com>
+Date:   Fri Mar 15 19:36:35 2024 +0530
+
+    script.js successfully commited
+
+
+C:\Users\paart>git checkout master
+Switched to branch 'master'
+
+C:\Users\paart>git merge feature_greeting
+Updating affcb82..0b41280
+Fast-forward
+ script.js | 1 +
+ 1 file changed, 1 insertion(+)
+
+C:\Users\paart>git branch
+  feature_greeting
+* master       // star simplify which branch is active
+
+// 3. 
+C:\Users\paart>git remote add origin https://github.com/paarth2809/assignment.git
+
+C:\Users\paart>git push -u origin main
+error: src refspec main does not match any
+error: failed to push some refs to 'https://github.com/paarth2809/assignment.git'
+
+C:\Users\paart>git branch -M main
+
+C:\Users\paart>git push -u origin main
+Enumerating objects: 6, done.
+Counting objects: 100% (6/6), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (6/6), 463 bytes | 115.00 KiB/s, done.
+Total 6 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/paarth2809/assignment.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+
+C:\Users\paart>git clone https://github.com/jakevdp/PythonDataScienceHandbook.git
+Cloning into 'PythonDataScienceHandbook'...
+remote: Enumerating objects: 1927, done.
+remote: Counting objects: 100% (116/116), done.
+remote: Compressing objects: 100% (107/107), done.
+remote: Total 1927 (delta 18), reused 68 (delta 8), pack-reused 1811
+Receiving objects: 100% (1927/1927), 44.15 MiB | 1.44 MiB/s, done.
+Resolving deltas: 100% (1226/1226), done.
+Updating files: 100% (264/264), done.
+
+C:\Users\paart>cd
+C:\Users\paart
+
+C:\Users\paart>dir
+ Volume in drive C is Windows
+ Volume Serial Number is 32EA-CE9F
+
+ Directory of C:\Users\paart
+
+15-03-2024  07:47 PM    <DIR>          .
+05-04-2023  08:59 PM    <DIR>          ..
+10-02-2024  03:44 PM    <DIR>          .android
+19-05-2023  04:13 PM    <DIR>          .arduinoIDE
+10-02-2024  03:33 PM                16 .emulator_console_auth_token
+14-03-2024  11:31 AM               276 .gitconfig
+10-02-2024  03:39 PM    <DIR>          .gradle
+13-01-2023  10:11 PM    <DIR>          .idlerc
+15-03-2024  07:41 PM                20 .lesshst
+09-06-2023  06:08 PM    <DIR>          .vscode
+25-05-2023  02:36 PM           135,112 battery-report.html
+05-04-2023  09:07 PM    <DIR>          Contacts
+02-10-2022  12:45 PM    <DIR>          Documents
+13-03-2024  10:30 PM    <DIR>          Downloads
+13-01-2023  09:17 PM    <DIR>          Dropbox
+05-04-2023  09:07 PM    <DIR>          Favorites
+29-02-2024  09:46 PM    <DIR>          first
+01-03-2024  04:47 PM    <DIR>          folder
+05-04-2023  09:07 PM    <DIR>          Links
+05-04-2023  09:07 PM    <DIR>          Music
+03-03-2024  07:36 PM    <DIR>          OneDrive
+18-03-2023  09:51 PM    <DIR>          PycharmProjects
+22-03-2023  11:38 AM                 0 python
+15-03-2024  07:48 PM    <DIR>          PythonDataScienceHandbook
+14-03-2024  12:00 PM    <DIR>          revision
+05-04-2023  09:07 PM    <DIR>          Saved Games
+15-03-2024  07:41 PM                14 script.js
+05-04-2023  09:07 PM    <DIR>          Searches
+04-03-2024  06:31 PM    <DIR>          Videos
+               6 File(s)        135,438 bytes
+              23 Dir(s)  40,747,388,928 bytes free
+
+//4. 
+git checkout -b feature_branch
+notepad script.js
+git add .
+git commit -m "feature commit"
+git checkout main
+notepad script.js
+git add .
+git commit -m "main commit"
+git merge faeture_branch
+delete unrequired from file
+
+// 5. 
+C:\Users\paart>type nul> obsolete.js
+
+C:\Users\paart>git init
+Reinitialized existing Git repository in C:/Users/paart/.git/
+
+C:\Users\paart>git add obsolete.js
+
+C:\Users\paart>git commit -m"my first commit"
+[main ce1413f] my first commit
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 obsolete.js
+
+C:\Users\paart>git log
+commit ce1413fec4e7d5c3c044c9a4db8dfe46ffe5cca2 (HEAD -> main)
+Author: Paarth Monga <paarthmonga28@gmail.com>
+Date:   Fri Mar 15 19:54:21 2024 +0530
+
+    my first commit
+
+commit 0b412800200a74e06aaafbd0216fa59ab663df94 (origin/main, feature_greeting)
+Author: Paarth Monga <paarthmonga28@gmail.com>
+Date:   Fri Mar 15 19:40:15 2024 +0530
+
+    feature_greeting commit
+
+commit affcb822f00148defd82dc73285bb02b1d1910a9
+Author: Paarth Monga <paarthmonga28@gmail.com>
+Date:   Fri Mar 15 19:36:35 2024 +0530
+
+    script.js successfully commited
+
+C:\Users\paart>git reset --soft HEAD~1
