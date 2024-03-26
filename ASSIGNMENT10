@@ -1,0 +1,92 @@
+// 1
+const http=require('http')
+const server=http.createServer((req,res)=>{
+    if(req.url=='/hello') res.end("Hello,Students!")
+    else {
+        res.writeHead(404)
+        res.end("write correct url")
+    }
+})
+server.listen(5000,()=>{
+    console.log("server started")
+})
+
+// 2 
+const fs=require('fs')
+console.log("start")
+const content=fs.readFileSync('input.txt')
+console.log("read from input.txt success")
+fs.writeFileSync('output.txt',content)
+console.log("write to output.txt success")
+console.log("end")
+
+// 3
+const http=require('http')
+const server=http.createServer((req,res)=>{
+    if(req.url==='/') res.end('Hello, World!')
+    else{
+        res.writeHead(404)
+        res.end('Page Not Found')
+    }
+})
+server.listen(3000,()=>{
+    console.log("server has started successfully")
+})
+
+// 4
+const os=require('os')
+console.log(os.hostname())
+console.log(os.freemem())
+console.log(os.machine())
+
+// 5
+const path = require('path');
+
+// Example file paths
+const filePath1 = '/path/to/some/file.txt';
+const filePath2 = '../another/path/file.js';
+
+// Get the directory name from a file path
+const dirname1 = path.dirname(filePath1);
+const dirname2 = path.dirname(filePath2);
+
+console.log('Directory Name 1:', dirname1);
+console.log('Directory Name 2:', dirname2);
+
+// Get the file extension
+const extension1 = path.extname(filePath1);
+const extension2 = path.extname(filePath2);
+
+console.log('Extension 1:', extension1);
+console.log('Extension 2:', extension2);
+
+// Join paths together
+const joinedPath = path.join(dirname1, 'newfile.txt');
+console.log('Joined Path:', joinedPath);
+
+// Resolve a relative path to an absolute path
+const resolvedPath = path.resolve(filePath2);
+console.log('Resolved Path:', resolvedPath);
+
+
+// 6 
+
+// in file1.txt
+add=((a,b)=>a+b)
+sub=((a,b)=>a-b)
+mul=((a,b)=>a*b)
+div=((a,b)=>a/b)
+
+module.exports={
+    addition:add,
+    subtraction:sub,
+    multiplication:mul,
+    division:div
+}
+
+// in file2.txt
+const operation=require('./file1.txt')
+console.log(operation.addition(2,3))  // 5
+console.log(operation.subtraction(8,3))  // 5
+console.log(operation.multiplication(2,3))  // 6
+console.log(operation.division(9,3))  // 3
