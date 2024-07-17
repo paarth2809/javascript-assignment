@@ -1,0 +1,47 @@
+//1. 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+     <h1>HTML defines the content and structure of your website</h1>
+</body>
+</html>
+
+
+//2.
+
+comments in html are non-executable lines that we can write for explanation of code.
+there are two types of comments: single line comment and multi line comment
+comments are represented using <!-- line of code --!>
+
+
+//3. 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+     <h1>HTML defines the content and structure of your website</h1>
+     <p>hello this is my paragraph this is second line of paragraph</p>
+     <hr>
+</body>
+</html>
+
+
+//4.
+
+tags- basic building blocks used to write whole html document
+2 types:
+self closing-  there is no need to open and close these tags seperately. eg image tag
+manual closing-  these tags are opened seprately and then closed seperately. eg paragraph tag and body tag
+
+
+//5. 
+
+doctype declaration: <!DOCTYPE html>
+this tells that the html document we are working on is based on html5 
